@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { MapPin, Users, Calendar, Compass, ChevronDown } from 'lucide-react';
 
-
-// Add the LearnMoreSection component here
+// LearnMoreSection component remains unchanged
 const LearnMoreSection = () => {
   const scrollToNextSection = () => {
     const nextSection = document.getElementById('features-section');
@@ -23,7 +22,6 @@ const LearnMoreSection = () => {
         </div>
       </div>
       
-      {/* Learn More Button */}
       <div className="absolute bottom-4 flex flex-col items-center gap-2">
         <button 
           onClick={scrollToNextSection}
@@ -78,229 +76,194 @@ function App() {
         </div>
       </nav>
 
-      {/* How It Works - Check-ins */}
-      <LearnMoreSection />
-
-
-
-      {/* Features Section */}
-<div id="features-section" className="h-[50vh] flex items-center bg-black text-[#faf9f5]">
-  <div className="max-w-7xl mx-auto px-4 py-16 w-full">
-    <div className={`grid gap-4 w-full ${isVertical ? 'grid-cols-2' : 'grid-cols-4'}`}>
-      {/* The Room Box */}
-      <div className="aspect-square w-full">
-        <img 
-          src="/assets/theroombox.png" 
-          alt="The Room"
-          className="w-full h-full object-cover"
-        />
-      </div>
-
-      {/* Check Ins Box */}
-      <div className="bg-black border border-[#faf9f5] aspect-square flex flex-col items-center justify-center p-4">
-        <MapPin size={32} className="text-[#faf9f5] mb-3" />
-        <h3 className="text-xl md:text-2xl font-semibold text-center mb-3">Check Ins</h3>
-        <p className="text-gray-300 text-sm md:text-base text-center">See where your friends are hanging out and join them with just a tap.</p>
-      </div>
-
-      {/* Connect Box */}
-      <div className="bg-black border border-[#faf9f5] aspect-square flex flex-col items-center justify-center p-4">
-        <Users size={32} className="text-[#faf9f5] mb-3" />
-        <h3 className="text-xl md:text-2xl font-semibold text-center mb-3">Connect</h3>
-        <p className="text-gray-300 text-sm md:text-base text-center">Find and connect with mutuals who share your favorite spots and vibes.</p>
-      </div>
-
-      {/* Explore Box */}
-      <div className="bg-black border border-[#faf9f5] aspect-square flex flex-col items-center justify-center p-4">
-        <Compass size={32} className="text-[#faf9f5] mb-3" />
-        <h3 className="text-xl md:text-2xl font-semibold text-center mb-3">Explore</h3>
-        <p className="text-gray-300 text-sm md:text-base text-center">Discover new places and experiences in your area.</p>
-      </div>
-    </div>
-  </div>
-</div>
-
-      {/* Hero Section */}
+      {/* Hero Section - Modified for portrait mode */}
       <div className="min-h-screen flex items-center">
         <div className="max-w-7xl mx-auto px-4 pt-32">
-          <div className="grid md:grid-cols-2 gap-16 items-start">
-            <div className="max-w-xl">
-              <h1 className="text-7xl font-bold mb-6">Your Digital Nametag Anywhere, Anytime</h1>
-              <p className="text-2xl mb-1 text-gray-600">Connect with friends and discover where the night takes you. See which bars are buzzing and join your mutuals in real-time.</p>
+          <div className="flex flex-col md:grid md:grid-cols-2 gap-16 items-center">
+            <div className="order-2 md:order-1 max-w-xl">
+              <h1 className="text-5xl md:text-7xl font-bold mb-6">Your Digital Nametag Anywhere, Anytime</h1>
+              <p className="text-xl md:text-2xl mb-1 text-gray-600">Connect with friends and discover where the night takes you. See which bars are buzzing and join your mutuals in real-time.</p>
               <div className="flex gap-8 items-start">
                 <img 
                   src="/assets/appStore.png" 
                   alt="Download on App Store" 
-                  className="h-48 w-auto cursor-pointer hover:opacity-80 transition-opacity"
+                  className="h-36 md:h-48 w-auto cursor-pointer hover:opacity-80 transition-opacity"
                 />
                 <img 
                   src="/assets/googlePlay.png" 
                   alt="Get it on Google Play" 
-                  className="h-56 -mt-4 w-auto cursor-pointer hover:opacity-80 transition-opacity"
+                  className="h-44 md:h-56 -mt-4 w-auto cursor-pointer hover:opacity-80 transition-opacity"
                 />
               </div>
             </div>
-            <div className="relative h-full flex items-start justify-center -mt-8">
+            <div className="order-1 md:order-2 relative h-full flex items-start justify-center">
               <img 
                 src="/assets/overview1.png" 
                 alt="The Room app overview"
-                className="w-[120%] h-auto"
+                className="w-full md:w-[120%] h-auto"
               />
             </div>
           </div>
         </div>
       </div>
 
-      
+      {/* How It Works - Check-ins */}
+      <LearnMoreSection />
 
-
-    <div className="min-h-screen flex items-center bg-black text-[#faf9f5]">
-      <div className="max-w-7xl mx-auto px-4 py-32 w-full">
-        <div className="flex gap-12">
-          {/* Left side - Images (3/4 width) */}
-          <div className="w-3/4 flex gap-6">
-            {[1, 2, 3].map((num) => (
-              <div 
-                key={num} 
-                className="relative group cursor-pointer flex-1"
-              >
-                <div className="h-[80vh]">
-                  <img 
-                    src={`/assets/explore${num}.png`} 
-                    alt={`Explore ${num}`}
-                    className="w-full h-full object-contain rounded-lg"
-                  />
-                  <div className="absolute bottom-0 left-0 w-full h-1 bg-[#0000fe] transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 ease-in-out" />
-                </div>
-              </div>
-            ))}
-          </div>
-
-          {/* Right side - Text (1/4 width) */}
-          <div className="w-1/4 flex items-center">
-            <div>
-              <h2 className="text-4xl font-bold mb-8">Explore Your City</h2>
-              <ul className="space-y-6 text-xl text-gray-300">
-                <li className="flex items-center gap-2 hover:text-white transition-colors duration-200">
-                  <span className="text-2xl">•</span>
-                  Find hotspots in your area
-                </li>
-                <li className="flex items-center gap-2 hover:text-white transition-colors duration-200">
-                  <span className="text-2xl">•</span>
-                  Search by people and places
-                </li>
-                <li className="flex items-center gap-2 hover:text-white transition-colors duration-200">
-                  <span className="text-2xl">•</span>
-                  Save your check-ins and favorite spots
-                </li>
-              </ul>
+      {/* Features Section */}
+      <div id="features-section" className="h-[50vh] flex items-center bg-black text-[#faf9f5]">
+        <div className="max-w-7xl mx-auto px-4 py-16 w-full">
+          <div className={`grid gap-4 w-full ${isVertical ? 'grid-cols-2' : 'grid-cols-4'}`}>
+            <div className="aspect-square w-full">
+              <img 
+                src="/assets/theroombox.png" 
+                alt="The Room"
+                className="w-full h-full object-cover"
+              />
             </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div className="min-h-screen flex items-center bg-[#faf9f5] text-black">
-      <div className="max-w-7xl mx-auto px-4 py-32 w-full">
-        <div className="flex gap-12">
-          {/* Left side - Text (1/3 width) */}
-          <div className="w-1/3 flex items-center">
-            <div>
-              <h2 className="text-4xl font-bold mb-8">Connect With Others</h2>
-              <ul className="space-y-6 text-xl text-gray-600">
-                <li className="flex items-center gap-2 hover:text-black transition-colors duration-200">
-                  <span className="text-2xl">•</span>
-                  Add new connects
-                </li>
-                <li className="flex items-center gap-2 hover:text-black transition-colors duration-200">
-                  <span className="text-2xl">•</span>
-                  Look through your current connections and find mutuals
-                </li>
-                <li className="flex items-center gap-2 hover:text-black transition-colors duration-200">
-                  <span className="text-2xl">•</span>
-                  Find common interests and conversation starters
-                </li>
-              </ul>
-            </div>
-          </div>
-
-          {/* Right side - Images (2/3 width) */}
-          <div className="w-2/3 flex gap-6">
-            {['connect2', 'connect3'].map((imageName) => (
-              <div 
-                key={imageName} 
-                className="relative group cursor-pointer flex-1"
-              >
-                <div className="h-[80vh]">
-                  <img 
-                    src={`/assets/${imageName}.png`} 
-                    alt={`Connect ${imageName}`}
-                    className="w-full h-full object-contain rounded-lg"
-                  />
-                  <div className="absolute bottom-0 left-0 w-full h-1 bg-[#0000fe] transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 ease-in-out" />
-                </div>
+            {[
+              { icon: MapPin, title: "Check Ins", desc: "See where your friends are hanging out and join them with just a tap." },
+              { icon: Users, title: "Connect", desc: "Find and connect with mutuals who share your favorite spots and vibes." },
+              { icon: Compass, title: "Explore", desc: "Discover new places and experiences in your area." }
+            ].map(({ icon: Icon, title, desc }) => (
+              <div key={title} className="bg-black border border-[#faf9f5] aspect-square flex flex-col items-center justify-center p-4">
+                <Icon size={32} className="text-[#faf9f5] mb-3" />
+                <h3 className="text-xl md:text-2xl font-semibold text-center mb-3">{title}</h3>
+                <p className="text-gray-300 text-sm md:text-base text-center">{desc}</p>
               </div>
             ))}
           </div>
         </div>
       </div>
-    </div>
 
-    {/* How It Works - Rooms */}
-    <div className="min-h-screen flex items-center bg-black text-[#faf9f5]">
-      <div className="max-w-7xl mx-auto px-4 py-32 w-full">
-        <div className="flex gap-12">
-          {/* Left side - Images (3/4 width) */}
-          <div className="w-3/4 flex gap-6">
-            {[1, 2, 3].map((num) => (
-              <div 
-                key={num} 
-                className="relative group cursor-pointer flex-1"
-              >
-                <div className="h-[80vh]">
-                  <img 
-                    src={`/assets/create${num}.png`} 
-                    alt={`Create Room ${num}`}
-                    className="w-full h-full object-contain rounded-lg"
-                  />
-                  <div className="absolute bottom-0 left-0 w-full h-1 bg-[#0000fe] transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 ease-in-out" />
+      {/* Explore Section - Modified for mobile */}
+      <div className="min-h-screen flex items-center bg-black text-[#faf9f5]">
+        <div className="max-w-7xl mx-auto px-4 py-32 w-full">
+          <div className="flex flex-col-reverse md:flex-row gap-12">
+            <div className="w-full md:w-3/4 hidden md:flex gap-6">
+              {[1, 2, 3].map((num) => (
+                <div key={num} className="relative group cursor-pointer flex-1">
+                  <div className="h-[80vh]">
+                    <img 
+                      src={`/assets/explore${num}.png`} 
+                      alt={`Explore ${num}`}
+                      className="w-full h-full object-contain rounded-lg"
+                    />
+                    <div className="absolute bottom-0 left-0 w-full h-1 bg-[#0000fe] transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 ease-in-out" />
+                  </div>
                 </div>
+              ))}
+            </div>
+            <div className="w-full md:w-1/4 flex items-center">
+              <div>
+                <h2 className="text-4xl font-bold mb-8">Explore Your City</h2>
+                <ul className="space-y-6 text-xl text-gray-300">
+                  <li className="flex items-center gap-2 hover:text-white transition-colors duration-200">
+                    <span className="text-2xl">•</span>
+                    Find hotspots in your area
+                  </li>
+                  <li className="flex items-center gap-2 hover:text-white transition-colors duration-200">
+                    <span className="text-2xl">•</span>
+                    Search by people and places
+                  </li>
+                  <li className="flex items-center gap-2 hover:text-white transition-colors duration-200">
+                    <span className="text-2xl">•</span>
+                    Save your check-ins and favorite spots
+                  </li>
+                </ul>
               </div>
-            ))}
-          </div>
-
-          {/* Right side - Text (1/4 width) */}
-          <div className="w-1/4 flex items-center">
-            <div>
-              <h2 className="text-4xl font-bold mb-8">Create Your Space</h2>
-              <ul className="space-y-6 text-xl text-gray-300">
-                <li className="flex items-center gap-2 hover:text-white transition-colors duration-200">
-                  <span className="text-2xl">•</span>
-                  Invite friends to events
-                </li>
-                <li className="flex items-center gap-2 hover:text-white transition-colors duration-200">
-                  <span className="text-2xl">•</span>
-                  Create rooms and events
-                </li>
-                <li className="flex items-center gap-2 hover:text-white transition-colors duration-200">
-                  <span className="text-2xl">•</span>
-                  Edit your rooms and events
-                </li>
-              </ul>
             </div>
           </div>
         </div>
       </div>
-    </div>
 
-    
+      {/* Connect Section - Modified for mobile */}
+      <div className="min-h-screen flex items-center bg-[#faf9f5] text-black">
+        <div className="max-w-7xl mx-auto px-4 py-32 w-full">
+          <div className="flex flex-col md:flex-row gap-12">
+            <div className="w-full md:w-1/3 flex items-center">
+              <div>
+                <h2 className="text-4xl font-bold mb-8">Connect With Others</h2>
+                <ul className="space-y-6 text-xl text-gray-600">
+                  <li className="flex items-center gap-2 hover:text-black transition-colors duration-200">
+                    <span className="text-2xl">•</span>
+                    Add new connects
+                  </li>
+                  <li className="flex items-center gap-2 hover:text-black transition-colors duration-200">
+                    <span className="text-2xl">•</span>
+                    Look through your current connections and find mutuals
+                  </li>
+                  <li className="flex items-center gap-2 hover:text-black transition-colors duration-200">
+                    <span className="text-2xl">•</span>
+                    Find common interests and conversation starters
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div className="w-full md:w-2/3 hidden md:flex gap-6">
+              {['connect2', 'connect3'].map((imageName) => (
+                <div key={imageName} className="relative group cursor-pointer flex-1">
+                  <div className="h-[80vh]">
+                    <img 
+                      src={`/assets/${imageName}.png`} 
+                      alt={`Connect ${imageName}`}
+                      className="w-full h-full object-contain rounded-lg"
+                    />
+                    <div className="absolute bottom-0 left-0 w-full h-1 bg-[#0000fe] transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 ease-in-out" />
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
 
+      {/* Create Space Section - Modified for mobile */}
+      <div className="min-h-screen flex items-center bg-black text-[#faf9f5]">
+        <div className="max-w-7xl mx-auto px-4 py-32 w-full">
+          <div className="flex flex-col-reverse md:flex-row gap-12">
+            <div className="w-full md:w-3/4 hidden md:flex gap-6">
+              {[1, 2, 3].map((num) => (
+                <div key={num} className="relative group cursor-pointer flex-1">
+                  <div className="h-[80vh]">
+                    <img 
+                      src={`/assets/create${num}.png`} 
+                      alt={`Create Room ${num}`}
+                      className="w-full h-full object-contain rounded-lg"
+                    />
+                    <div className="absolute bottom-0 left-0 w-full h-1 bg-[#0000fe] transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 ease-in-out" />
+                  </div>
+                </div>
+              ))}
+            </div>
+            <div className="w-full md:w-1/4 flex items-center">
+              <div>
+                <h2 className="text-4xl font-bold mb-8">Create Your Space</h2>
+                <ul className="space-y-6 text-xl text-gray-300">
+                  <li className="flex items-center gap-2 hover:text-white transition-colors duration-200">
+                    <span className="text-2xl">•</span>
+                    Invite friends to events
+                  </li>
+                  <li className="flex items-center gap-2 hover:text-white transition-colors duration-200">
+                    <span className="text-2xl">•</span>
+                    Create and join events
+                  </li>
+                  <li className="flex items-center gap-2 hover:text-white transition-colors duration-200">
+                    <span className="text-2xl">•</span>
+                    Edit your events
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
 
       {/* Try The Room Today */}
       <div className="bg-black py-32 text-center">
-        <div className="bg-white mx-auto max-w-4xl rounded-2xl p-16">
-          <h2 className="text-7xl font-bold mb-8">Try The Room today.</h2>
-          <p className="text-2xl text-gray-600 mb-12 max-w-2xl mx-auto">Your next great night out is just a tap away.</p>
+        <div className="bg-white mx-auto max-w-4xl rounded-2xl p-8 md:p-16">
+          <h2 className="text-5xl md:text-7xl font-bold mb-8">Try The Room today.</h2>
+          <p className="text-xl md:text-2xl text-gray-600 mb-12 max-w-2xl mx-auto">Your next great night out is just a tap away.</p>
           <button 
             onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
             className="bg-black text-white px-8 py-4 rounded-lg text-xl hover:bg-gray-900 transition-colors duration-200"
@@ -316,7 +279,6 @@ function App() {
           <p>© {new Date().getFullYear()} The Room. All rights reserved.</p>
         </div>
       </footer>
-
     </div>
   );
 }
