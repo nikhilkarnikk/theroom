@@ -111,8 +111,8 @@ function App() {
       <LearnMoreSection />
 
       {/* Features Section */}
-      <div id="features-section" className="h-[50vh] flex items-center bg-black text-[#faf9f5]">
-        <div className="max-w-7xl mx-auto px-4 py-16 w-full">
+      <div id="features-section" className="h-[50vh] flex items-center bg-black text-[#faf9f5] pt-20 md:pt-0">
+  <div className="max-w-7xl mx-auto px-4 py-16 w-full">
           <div className={`grid gap-4 w-full ${isVertical ? 'grid-cols-2' : 'grid-cols-4'}`}>
             <div className="aspect-square w-full">
               <img 
